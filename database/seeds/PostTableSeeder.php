@@ -2,13 +2,15 @@
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class PostTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
+     *
+     * @return void
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        factory(\App\Models\Post::class, 20)->create();
     }
 }

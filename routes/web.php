@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    var_dump(\App\Enums\PostStatus::readables());
+});
+
+Route::get('/phpinfo', function () {
+    phpinfo();
 });

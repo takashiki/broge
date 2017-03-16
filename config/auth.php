@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults
@@ -65,10 +64,10 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        /*'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
-        ],
+        ],*/
 
         // 'users' => [
         //     'driver' => 'database',
@@ -98,5 +97,4 @@ return [
             'expire' => 60,
         ],
     ],
-
 ];

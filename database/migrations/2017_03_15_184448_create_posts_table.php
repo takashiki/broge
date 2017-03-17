@@ -1,6 +1,6 @@
 <?php
 
-use App\Enums\PostStatus;
+use App\Enums\PostType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
             $table->string('slug')->unique();
             $table->text('content');
             $table->integer('view_count')->default(0);
-            $table->tinyInteger('type')->default(PostStatus::DRAFT);
+            $table->string('type')->default(PostType::DRAFT);
             $table->timestamps();
             $table->softDeletes();
         });

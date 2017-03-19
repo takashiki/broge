@@ -19,5 +19,6 @@ $factory->define(\App\Models\Post::class, function (Faker\Generator $faker) {
         'title' => $title,
         'slug' => str_slug($title),
         'content' => $faker->text,
+        'type' => \App\Enums\PostType::ARTICLE,
     ];
 });

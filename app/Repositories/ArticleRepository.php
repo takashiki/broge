@@ -33,10 +33,15 @@ class ArticleRepository extends AbstractRepository
      *
      * @param int $identity
      *
-     * @return Article
+     * @return Post
      */
     public function findByIdentity($identity)
     {
         return $this->model->orWhere('id', $identity)->orWhere('slug', $identity)->firstOrFail();
+    }
+
+    public function getAllFeedItems()
+    {
+        return $this->model->orderBy('updated_at', 'desc')->get();
     }
 }

@@ -13,8 +13,8 @@ Route::get('/search', 'SiteController@search');
 Route::get('/archives', 'SiteController@archives');
 
 // SiteMap
-Route::get('sitemap', 'HelperController@sitemap');
-Route::get('sitemap.xml', 'HelperController@sitemap');
+Route::get('sitemap', 'SiteController@sitemap');
+Route::get('sitemap.xml', 'SiteController@sitemap');
 
 // Feed
 Route::get('feed', 'HelperController@feed');

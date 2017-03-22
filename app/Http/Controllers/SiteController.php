@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App;
 use App\Repositories\ArticleRepository;
+use Carbon\Carbon;
+use URL;
 
 class SiteController extends Controller
 {
@@ -21,5 +24,21 @@ class SiteController extends Controller
     public function search()
     {
         echo 'search';
+    }
+
+    public function sitemap()
+    {
+        $sitemap = App::make('sitemap');
+
+        $sitemap->add(URL::to('/'), Carbon::now(), '1.0', 'daily');
+
+        $posts = (new ArticleRepository(new App\Models\Post()))->getAllFeedItems();
+
+        // add every post to the sitemap
+        foreach ($posts as $post) {
+            $sitemap->add($post->getFeedItemLink(), $post->updated_at, '0.8', 'monthly');
+        }
+
+        return $sitemap->render('xml');
     }
 }

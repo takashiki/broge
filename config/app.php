@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Spatie\Feed\FeedServiceProvider::class,
+        Roumen\Sitemap\SitemapServiceProvider::class,
         Buzzylab\Laradown\MarkdownServiceProvider::class,
     ],
 

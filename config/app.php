@@ -178,6 +178,7 @@ return [
         Spatie\Feed\FeedServiceProvider::class,
         Roumen\Sitemap\SitemapServiceProvider::class,
         Buzzylab\Laradown\MarkdownServiceProvider::class,
+        JeroenNoten\LaravelAdminLte\ServiceProvider::class,
     ],
 
     /*

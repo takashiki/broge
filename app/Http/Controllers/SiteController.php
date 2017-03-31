@@ -32,11 +32,11 @@ class SiteController extends Controller
 
         $sitemap->add(URL::to('/'), Carbon::now(), '1.0', 'daily');
 
-        $posts = (new ArticleRepository(new App\Models\Post()))->getAllFeedItems();
+        $posts = $this->repository->getAllFeedItems();
 
         // add every post to the sitemap
         foreach ($posts as $post) {
-            $sitemap->add($post->getFeedItemLink(), $post->updated_at, '0.8', 'monthly');
+            $sitemap->add($post->getLink(), $post->updated_at, '0.8', 'monthly');
         }
 
         return $sitemap->render('xml');

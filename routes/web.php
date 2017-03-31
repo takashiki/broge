@@ -1,5 +1,6 @@
 <?php
 
+Auth::routes();
 Route::feeds();
 
 // Tag
@@ -26,3 +27,7 @@ Route::get('/article/{identity}', 'ArticleController@show');
 
 // Page
 Route::get('/{slug}', 'PageController@show');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

@@ -40,6 +40,9 @@ class ArticleRepository extends AbstractRepository
         return $this->model->orWhere('id', $identity)->orWhere('slug', $identity)->firstOrFail();
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection|Post[]
+     */
     public function getAllFeedItems()
     {
         return $this->model->orderBy('updated_at', 'desc')->get();

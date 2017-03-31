@@ -34,9 +34,14 @@ class Post extends \Eloquent implements FeedItem
 
     protected $dates = ['deleted_at'];
 
+    public function getLink()
+    {
+        return action('ArticleController@show', ['identity' => $this->slug]);
+    }
+
     public function getFeedItemId()
     {
-        return $this->getFeedItemLink();
+        return $this->getLink();
     }
 
     public function getFeedItemTitle()
@@ -56,7 +61,7 @@ class Post extends \Eloquent implements FeedItem
 
     public function getFeedItemLink()
     {
-        return action('ArticleController@show', ['identity' => $this->slug]);
+        return $this->getLink();
     }
 
     public function getFeedItemAuthor()

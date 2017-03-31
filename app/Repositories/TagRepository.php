@@ -10,4 +10,9 @@ class TagRepository extends AbstractRepository
     {
         $this->model = $model;
     }
+
+    public function getAll()
+    {
+        return Tag::get();
+    }
 }

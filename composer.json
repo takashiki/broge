@@ -11,6 +11,7 @@
         "cviebrock/eloquent-sluggable": "^4.2",
         "elao/enum": "^0.5.0",
         "encore/laravel-admin": "1.4.*",
+        "jeroennoten/laravel-adminlte": "^1.19",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "roumen/sitemap": "^2.6",

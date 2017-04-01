@@ -15,7 +15,7 @@ class ArticleController extends Controller
      * PostController constructor.
      *
      * @param ArticleRepository $articleRepository
-     * @param TagRepository $tagRepository
+     * @param TagRepository     $tagRepository
      */
     public function __construct(ArticleRepository $articleRepository, TagRepository $tagRepository)
     {

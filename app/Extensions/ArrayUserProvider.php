@@ -3,8 +3,11 @@
 namespace App\Extensions;
 
 use Illuminate\Auth\GenericUser;
+use Illuminate\Cache\CacheManager;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\UserProvider;
+use Illuminate\Contracts\Hashing\Hasher;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 
@@ -12,21 +15,23 @@ class ArrayUserProvider implements UserProvider
 {
     protected $users;
 
+    protected $hasher;
+
     /**
      * @var Cache
      */
     protected $cache;
 
-    public function __construct(array $users, Cache $cache)
+    public function __construct(array $users, Hasher $hasher, CacheManager $cache)
     {
         $this->users = $users;
-
+        $this->hasher = $hasher;
         $this->cache = $cache;
     }
 
-    protected function getCacheKey($identifier, $token)
+    protected function getCacheKey($identifier)
     {
-        return "auth:user:{$identifier}:token:{$token}";
+        return "auth:user:{$identifier}";
     }
 
     /**
@@ -39,7 +44,7 @@ class ArrayUserProvider implements UserProvider
     public function retrieveById($identifier)
     {
         if (array_key_exists($identifier, $this->users)) {
-            $user = $this->getGenericUser($this->users[$identifier]);
+            $user = $this->getUser($this->users[$identifier]);
             $user->id = $identifier;
 
             return $user;
@@ -58,7 +63,10 @@ class ArrayUserProvider implements UserProvider
      */
     public function retrieveByToken($identifier, $token)
     {
-        return $this->cache->get($this->getCacheKey($identifier, $token));
+        /** @var Authenticatable $user */
+        $user = $this->cache->get($this->getCacheKey($identifier));
+
+        return $user && $user->getRememberToken() === $token ? $user : null;
     }
 
     /**
@@ -69,7 +77,8 @@ class ArrayUserProvider implements UserProvider
      */
     public function updateRememberToken(Authenticatable $user, $token)
     {
-        $this->cache->put($this->getCacheKey($user->getAuthIdentifier(), $token), $user);
+        $user->setRememberToken($token);
+        $this->cache->forever($this->getCacheKey($user->getAuthIdentifier()), $user);
     }
 
     /**
@@ -82,16 +91,22 @@ class ArrayUserProvider implements UserProvider
     public function retrieveByCredentials(array $credentials)
     {
         foreach ($credentials as $key => $value) {
-            if (!Str::contains($key, 'password')) {
-                foreach ($this->users as $identifier => $data) {
-                    if (array_search($value, $data) === $key) {
-                        return $this->retrieveById($identifier);
-                    }
-                }
+            if (Str::contains($key, 'password')) {
+                unset($credentials[$key]);
             }
         }
 
-        return null;
+        $user = Arr::first($this->users, function ($user, $identifier) use ($credentials) {
+            foreach ($credentials as $key => $value) {
+                if (!isset($user[$key]) || $user[$key] != $value) {
+                    return false;
+                }
+            }
+
+            return true;
+        });
+
+        return $this->getUser($user);
     }
 
     /**
@@ -104,7 +119,9 @@ class ArrayUserProvider implements UserProvider
      */
     public function validateCredentials(Authenticatable $user, array $credentials)
     {
-        // TODO: Implement validateCredentials() method.
+        return $this->hasher->check(
+            $credentials['password'], $user->getAuthPassword()
+        );
     }
 
     /**
@@ -114,10 +131,10 @@ class ArrayUserProvider implements UserProvider
      *
      * @return \Illuminate\Auth\GenericUser|null
      */
-    protected function getGenericUser($user)
+    protected function getUser($user)
     {
         if (!is_null($user)) {
-            return new GenericUser((array) $user);
+            return new ArrayUser((array) $user);
         }
 
         return null;

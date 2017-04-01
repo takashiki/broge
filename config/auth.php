@@ -75,7 +75,7 @@ return [
         ],*/
 
         'users' => [
-            'driver' => 'static',
+            'driver' => 'array',
         ],
     ],
 

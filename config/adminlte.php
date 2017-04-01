@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Title
@@ -111,54 +110,54 @@ return [
         'MAIN NAVIGATION',
         [
             'text' => 'Blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'url' => 'admin/blog',
+            'can' => 'manage-blog',
         ],
         [
-            'text'        => 'Pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'file',
-            'label'       => 4,
+            'text' => 'Pages',
+            'url' => 'admin/pages',
+            'icon' => 'file',
+            'label' => 4,
             'label_color' => 'success',
         ],
         'ACCOUNT SETTINGS',
         [
             'text' => 'Profile',
-            'url'  => 'admin/settings',
+            'url' => 'admin/settings',
             'icon' => 'user',
         ],
         [
             'text' => 'Change Password',
-            'url'  => 'admin/settings',
+            'url' => 'admin/settings',
             'icon' => 'lock',
         ],
         [
-            'text'    => 'Multilevel',
-            'icon'    => 'share',
+            'text' => 'Multilevel',
+            'icon' => 'share',
             'submenu' => [
                 [
                     'text' => 'Level One',
-                    'url'  => '#',
+                    'url' => '#',
                 ],
                 [
-                    'text'    => 'Level One',
-                    'url'     => '#',
+                    'text' => 'Level One',
+                    'url' => '#',
                     'submenu' => [
                         [
                             'text' => 'Level Two',
-                            'url'  => '#',
+                            'url' => '#',
                         ],
                         [
-                            'text'    => 'Level Two',
-                            'url'     => '#',
+                            'text' => 'Level Two',
+                            'url' => '#',
                             'submenu' => [
                                 [
                                     'text' => 'Level Three',
-                                    'url'  => '#',
+                                    'url' => '#',
                                 ],
                                 [
                                     'text' => 'Level Three',
-                                    'url'  => '#',
+                                    'url' => '#',
                                 ],
                             ],
                         ],
@@ -166,21 +165,21 @@ return [
                 ],
                 [
                     'text' => 'Level One',
-                    'url'  => '#',
+                    'url' => '#',
                 ],
             ],
         ],
         'LABELS',
         [
-            'text'       => 'Important',
+            'text' => 'Important',
             'icon_color' => 'red',
         ],
         [
-            'text'       => 'Warning',
+            'text' => 'Warning',
             'icon_color' => 'yellow',
         ],
         [
-            'text'       => 'Information',
+            'text' => 'Information',
             'icon_color' => 'aqua',
         ],
     ],

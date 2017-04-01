@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'Article management' => '文章管理',
+    'article_management' => '文章管理',
 ];

@@ -3,16 +3,17 @@
 namespace App\Repositories;
 
 use App\Models\Tag;
+use Prettus\Repository\Eloquent\BaseRepository;
 
-class TagRepository extends AbstractRepository
+class TagRepository extends BaseRepository
 {
-    public function __construct(Tag $model)
+    /**
+     * Specify Model class name
+     *
+     * @return string
+     */
+    public function model()
     {
-        $this->model = $model;
-    }
-
-    public function getAll()
-    {
-        return Tag::get();
+        return Tag::class;
     }
 }

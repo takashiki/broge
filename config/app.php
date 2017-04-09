@@ -164,7 +164,16 @@ return [
         /*
          * Package Service Providers...
          */
+        Buzzylab\Laradown\MarkdownServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+        Cviebrock\EloquentSluggable\ServiceProvider::class,
+        JellyBool\Translug\TranslugServiceProvider::class,
+        JeroenNoten\LaravelAdminLte\ServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
+        Prettus\Repository\Providers\RepositoryServiceProvider::class,
+        Roumen\Sitemap\SitemapServiceProvider::class,
+        Spatie\Feed\FeedServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -174,11 +183,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
-        Spatie\Feed\FeedServiceProvider::class,
-        Roumen\Sitemap\SitemapServiceProvider::class,
-        Buzzylab\Laradown\MarkdownServiceProvider::class,
-        JeroenNoten\LaravelAdminLte\ServiceProvider::class,
     ],
 
     /*
@@ -223,9 +227,13 @@ return [
         'Schema' => Illuminate\Support\Facades\Schema::class,
         'Session' => Illuminate\Support\Facades\Session::class,
         'Storage' => Illuminate\Support\Facades\Storage::class,
+        'Translug' => JellyBool\Translug\TranslugFacade::class,
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Markdown' => Buzzylab\Laradown\Facades\MarkdownFacade::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'HTML' => Collective\Html\HtmlFacade::class,
+        'Flash' => Laracasts\Flash\Flash::class,
     ],
 ];

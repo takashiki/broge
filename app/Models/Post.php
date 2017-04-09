@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Extensions\TranSlugify;
+use Cocur\Slugify\Slugify;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Feed\FeedItem;
 
@@ -30,13 +33,45 @@ use Spatie\Feed\FeedItem;
  */
 class Post extends \Eloquent implements FeedItem
 {
+    use Sluggable;
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
 
+    public $fillable = [
+        'title',
+        'slug',
+    ];
+
+    public static $rules = [];
+
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title',
+            ],
+        ];
+    }
+
+    /**
+     * @param \Cocur\Slugify\Slugify $engine
+     * @param string $attribute
+     * @return \Cocur\Slugify\Slugify
+     */
+    public function customizeSlugEngine(Slugify $engine, $attribute)
+    {
+        return new TranSlugify();
+    }
+
     public function getLink()
     {
-        return action('ArticleController@show', ['identity' => $this->slug]);
+        return route('article.show', ['identity' => $this->slug]);
     }
 
     public function getFeedItemId()

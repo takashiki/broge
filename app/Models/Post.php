@@ -62,6 +62,7 @@ class Post extends \Eloquent implements FeedItem
     /**
      * @param \Cocur\Slugify\Slugify $engine
      * @param string $attribute
+     *
      * @return \Cocur\Slugify\Slugify
      */
     public function customizeSlugEngine(Slugify $engine, $attribute)

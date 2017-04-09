@@ -11,11 +11,11 @@ class AppPostsRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'title'
+        'title',
     ];
 
     /**
-     * Configure the Model
+     * Configure the Model.
      **/
     public function model()
     {

@@ -6,8 +6,8 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class AppPosts
- * @package App\Models
+ * Class AppPosts.
+ *
  * @version April 9, 2017, 4:31 am UTC
  */
 class AppPosts extends Model
@@ -15,13 +15,11 @@ class AppPosts extends Model
     use SoftDeletes;
 
     public $table = 'app_posts';
-    
 
     protected $dates = ['deleted_at'];
 
-
     public $fillable = [
-        'title'
+        'title',
     ];
 
     /**
@@ -30,17 +28,15 @@ class AppPosts extends Model
      * @var array
      */
     protected $casts = [
-        'title' => 'integer'
+        'title' => 'integer',
     ];
 
     /**
-     * Validation rules
+     * Validation rules.
      *
      * @var array
      */
     public static $rules = [
-        
-    ];
 
-    
+    ];
 }

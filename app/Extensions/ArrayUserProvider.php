@@ -2,7 +2,6 @@
 
 namespace App\Extensions;
 
-use Illuminate\Auth\GenericUser;
 use Illuminate\Cache\CacheManager;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\UserProvider;
@@ -49,8 +48,6 @@ class ArrayUserProvider implements UserProvider
 
             return $user;
         }
-
-        return null;
     }
 
     /**
@@ -136,7 +133,5 @@ class ArrayUserProvider implements UserProvider
         if (!is_null($user)) {
             return new ArrayUser((array) $user);
         }
-
-        return null;
     }
 }

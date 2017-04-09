@@ -5,15 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateAppPostsRequest;
 use App\Http\Requests\UpdateAppPostsRequest;
 use App\Repositories\AppPostsRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
 class AppPostsController extends AppBaseController
 {
-    /** @var  AppPostsRepository */
+    /** @var AppPostsRepository */
     private $appPostsRepository;
 
     public function __construct(AppPostsRepository $appPostsRepo)
@@ -25,6 +24,7 @@ class AppPostsController extends AppBaseController
      * Display a listing of the AppPosts.
      *
      * @param Request $request
+     *
      * @return Response
      */
     public function index(Request $request)

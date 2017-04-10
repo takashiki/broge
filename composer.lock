@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb7167dc0265173d226a4837aa5b6db4",
+    "content-hash": "ae076ca53593e216d7bb7e289f2f2372",
     "packages": [
         {
             "name": "buzzylab/laradown",
@@ -394,66 +394,6 @@
                 "symfony"
             ],
             "time": "2016-11-22T18:20:44+00:00"
-        },
-        {
-            "name": "encore/laravel-admin",
-            "version": "v1.4.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/z-song/laravel-admin.git",
-                "reference": "c9e20c1bd5e0ea992057e3a309682630957b254d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://files.phpcomposer.com/files/z-song/laravel-admin/c9e20c1bd5e0ea992057e3a309682630957b254d.zip",
-                "reference": "c9e20c1bd5e0ea992057e3a309682630957b254d",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "5.4.*",
-                "php": ">=5.6.4",
-                "symfony/dom-crawler": "3.1.*"
-            },
-            "require-dev": {
-                "fzaninotto/faker": "~1.4",
-                "intervention/image": "~2.3",
-                "laravel/laravel": "5.4.*",
-                "phpunit/phpunit": "~5.0",
-                "symfony/css-selector": "2.8.*|3.0.*"
-            },
-            "suggest": {
-                "intervention/image": "Required to handling and manipulation upload images (~2.3).",
-                "spatie/eloquent-sortable": "Required to built orderable gird."
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Encore\\Admin\\": "src/"
-                },
-                "files": [
-                    "src/helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "zsong",
-                    "email": "zosong@126.com"
-                }
-            ],
-            "description": "laravel admin",
-            "homepage": "https://github.com/z-song/laravel-admin",
-            "keywords": [
-                "admin",
-                "chart",
-                "form",
-                "grid",
-                "laravel"
-            ],
-            "time": "2017-03-15T05:11:49+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -1266,6 +1206,70 @@
                 "storage"
             ],
             "time": "2017-03-22T15:43:14+00:00"
+        },
+        {
+            "name": "league/fractal",
+            "version": "0.16.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/fractal.git",
+                "reference": "d0445305e308d9207430680acfd580557b679ddc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/thephpleague/fractal/d0445305e308d9207430680acfd580557b679ddc.zip",
+                "reference": "d0445305e308d9207430680acfd580557b679ddc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "doctrine/orm": "^2.5",
+                "illuminate/contracts": "~5.0",
+                "mockery/mockery": "~0.9",
+                "pagerfanta/pagerfanta": "~1.0.0",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.5",
+                "zendframework/zend-paginator": "~2.3"
+            },
+            "suggest": {
+                "illuminate/pagination": "The Illuminate Pagination component.",
+                "pagerfanta/pagerfanta": "Pagerfanta Paginator",
+                "zendframework/zend-paginator": "Zend Framework Paginator"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.13-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Fractal\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Phil Sturgeon",
+                    "email": "me@philsturgeon.uk",
+                    "homepage": "http://philsturgeon.uk/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Handle the output of complex data structures ready for API output.",
+            "homepage": "http://fractal.thephpleague.com/",
+            "keywords": [
+                "api",
+                "json",
+                "league",
+                "rest"
+            ],
+            "time": "2017-03-12T01:28:43+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2124,62 +2128,6 @@
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
             "time": "2017-02-18T17:28:00+00:00"
-        },
-        {
-            "name": "symfony/dom-crawler",
-            "version": "v3.1.10",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "7eede2a901a19928494194f7d1815a77b9a473a0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/dom-crawler/7eede2a901a19928494194f7d1815a77b9a473a0.zip",
-                "reference": "7eede2a901a19928494194f7d1815a77b9a473a0",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9",
-                "symfony/polyfill-mbstring": "~1.0"
-            },
-            "require-dev": {
-                "symfony/css-selector": "~2.8|~3.0"
-            },
-            "suggest": {
-                "symfony/css-selector": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\DomCrawler\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony DomCrawler Component",
-            "homepage": "https://symfony.com",
-            "time": "2017-01-21T17:13:55+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -5327,6 +5275,39 @@
             "time": "2016-11-23T20:04:58+00:00"
         },
         {
+            "name": "yuanchao/laravel-5-markdown-editor",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yccphp/laravel-5-markdown-editor.git",
+                "reference": "420f93671d19b6edff7bd045ed728704c4e083c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/yccphp/laravel-5-markdown-editor/420f93671d19b6edff7bd045ed728704c4e083c2.zip",
+                "reference": "420f93671d19b6edff7bd045ed728704c4e083c2",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "YuanChao\\Editor\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "yuanchao",
+                    "email": "653069653@qq.com"
+                }
+            ],
+            "description": "Based on the markdown editor laravel 5",
+            "time": "2016-06-06T03:00:54+00:00"
+        },
+        {
             "name": "zircote/swagger-php",
             "version": "2.0.9",
             "source": {
@@ -5396,7 +5377,8 @@
         "infyomlabs/core-templates": 20,
         "infyomlabs/laravel-generator": 20,
         "infyomlabs/swagger-generator": 20,
-        "jlapp/swaggervel": 20
+        "jlapp/swaggervel": 20,
+        "yuanchao/laravel-5-markdown-editor": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

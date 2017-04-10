@@ -10,13 +10,13 @@
         "caffeinated/themes": "^3.0",
         "cviebrock/eloquent-sluggable": "^4.2",
         "elao/enum": "^0.5.0",
-        "encore/laravel-admin": "1.4.*",
         "jellybool/translug": "^1.0",
         "jeroennoten/laravel-adminlte": "^1.19",
         "laracasts/flash": "^2.0",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4",
+        "league/fractal": "^0.16.0",
         "roumen/sitemap": "^2.6",
         "spatie/laravel-feed": "^1.2"
     },
@@ -31,7 +31,8 @@
         "infyomlabs/swagger-generator": "dev-master",
         "jlapp/swaggervel": "dev-master",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.7"
+        "phpunit/phpunit": "~5.7",
+        "yuanchao/laravel-5-markdown-editor": "@dev"
     },
     "autoload": {
         "classmap": [

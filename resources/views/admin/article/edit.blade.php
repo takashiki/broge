@@ -1,11 +1,11 @@
 @extends('adminlte::page')
 
-@section('title', __('admin.article_create'))
+@section('title', __('admin.article_update'))
 
 @section('content')
     <section class="content-header">
         <h1>
-            {{ __('admin.article_create') }}
+            {{ __('admin.article_update') }}
         </h1>
     </section>
     <div class="content">

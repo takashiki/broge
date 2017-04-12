@@ -1,7 +1,13 @@
 <!-- Title Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-12">
     {!! Form::label('title', 'Title:') !!}
     {!! Form::text('title', null, ['class' => 'form-control']) !!}
+</div>
+
+@include('editor::head')
+<div class="form-group col-sm-12 editor">
+    {!! Form::label('content', 'Content:') !!}
+    {!! Form::textarea('content', null, ['class' => 'form-control', 'id' => 'content-editor']) !!}
 </div>
 
 <!-- Submit Field -->

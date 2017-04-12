@@ -167,6 +167,7 @@ return [
         Buzzylab\Laradown\MarkdownServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
+        EstGroupe\Taggable\Providers\TaggingServiceProvider::class,
         JellyBool\Translug\TranslugServiceProvider::class,
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
@@ -174,6 +175,7 @@ return [
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
         Roumen\Sitemap\SitemapServiceProvider::class,
         Spatie\Feed\FeedServiceProvider::class,
+        YuanChao\Editor\EndaEditorServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -209,6 +211,7 @@ return [
         'Crypt' => Illuminate\Support\Facades\Crypt::class,
         'DB' => Illuminate\Support\Facades\DB::class,
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
+        'EndaEditor' => YuanChao\Editor\Facade\EndaEditorFacade::class,
         'Event' => Illuminate\Support\Facades\Event::class,
         'File' => Illuminate\Support\Facades\File::class,
         'Gate' => Illuminate\Support\Facades\Gate::class,

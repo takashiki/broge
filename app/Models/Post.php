@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Extensions\TranSlugify;
 use Cocur\Slugify\Slugify;
 use Cviebrock\EloquentSluggable\Sluggable;
+use EstGroupe\Taggable\Taggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Feed\FeedItem;
 
@@ -35,12 +36,14 @@ class Post extends \Eloquent implements FeedItem
 {
     use Sluggable;
     use SoftDeletes;
+    use Taggable;
 
     protected $dates = ['deleted_at'];
 
     public $fillable = [
         'title',
         'slug',
+        'content',
     ];
 
     public static $rules = [];

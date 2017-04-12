@@ -22,6 +22,8 @@ Route::get('/', 'ArticleController@index')->name('article.list');
 Route::get('/archives/{identity}', 'ArticleController@show')->name('typecho.article.show');
 Route::get('/article/{identity}', 'ArticleController@show')->name('article.show');
 
-Route::get('/test', 'HomeController@test');
+// Upload
+Route::post('/upload', 'UploadController@upload');
+
 // Page
 Route::get('/{slug}', 'PageController@show')->name('page');

@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
-class Tag extends \Eloquent
+use EstGroupe\Taggable\Model\Tag as TaggableTag;
+
+class Tag extends TaggableTag
 {
+    // Model code go here
 }

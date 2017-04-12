@@ -38,4 +38,9 @@ return [
         'key' => env('YOUDAO_API_KEY'),
         'from' => env('YOUDAO_KEY_FROM'),
     ],
+
+    'weibo' => [
+        'username' => env('WEIBO_USERNAME'),
+        'password' => env('WEIBO_PASSWORD')
+    ],
 ];

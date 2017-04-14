@@ -46,7 +46,6 @@ class TypechoMigrate extends Command
         foreach (DB::table('typecho_contents')->select(['cid', 'title', 'slug', 'created', 'modified', 'text'])
                      ->where('type', 'post')
                      ->cursor() as $post) {
-
             DB::table('posts')->insert([
                 'id' => $post->cid,
                 'title' => $post->title,

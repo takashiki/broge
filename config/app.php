@@ -164,10 +164,11 @@ return [
         /*
          * Package Service Providers...
          */
+        anlutro\LaravelSettings\ServiceProvider::class,
         Buzzylab\Laradown\MarkdownServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
-        EstGroupe\Taggable\Providers\TaggingServiceProvider::class,
+        Cviebrock\EloquentTaggable\ServiceProvider::class,
         JellyBool\Translug\TranslugServiceProvider::class,
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
@@ -229,6 +230,7 @@ return [
         'Route' => Illuminate\Support\Facades\Route::class,
         'Schema' => Illuminate\Support\Facades\Schema::class,
         'Session' => Illuminate\Support\Facades\Session::class,
+        'Setting' => anlutro\LaravelSettings\Facade::class,
         'Storage' => Illuminate\Support\Facades\Storage::class,
         'Translug' => JellyBool\Translug\TranslugFacade::class,
         'URL' => Illuminate\Support\Facades\URL::class,

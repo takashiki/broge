@@ -109,9 +109,9 @@ return [
     'menu' => [
         'MAIN NAVIGATION',
         [
-            'text'        => '文章管理',
-            'url'         => 'admin/article',
-            'icon'        => 'file',
+            'text' => '文章管理',
+            'url' => 'admin/article',
+            'icon' => 'file',
         ],
     ],
 

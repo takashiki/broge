@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\PostType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
+use App\Models\Post;
 use App\Repositories\ArticleRepository;
-use App\Repositories\TagRepository;
 use Flash;
 use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
@@ -15,18 +16,15 @@ use Response;
 class ArticleController extends Controller
 {
     protected $articleRepository;
-    protected $tagRepository;
 
     /**
      * PostController constructor.
      *
      * @param ArticleRepository $articleRepository
-     * @param TagRepository     $tagRepository
      */
-    public function __construct(ArticleRepository $articleRepository, TagRepository $tagRepository)
+    public function __construct(ArticleRepository $articleRepository)
     {
         $this->articleRepository = $articleRepository;
-        $this->tagRepository = $tagRepository;
     }
 
     public function index(Request $request)
@@ -41,18 +39,17 @@ class ArticleController extends Controller
 
     public function create()
     {
-        return view('admin.article.create', [
-            'tags' => $this->tagRepository->all(),
-        ]);
+        return view('admin.article.create');
     }
 
     public function store(CreateArticleRequest $request)
     {
         $input = $request->all();
+        $input['type'] = PostType::ARTICLE;
 
-        $article = $this->articleRepository->create($input);
-
-        if ($article) {
+        if ($article = $this->articleRepository->create($input)) {
+            /* @var Post|null $article */
+            $article->tag($input['tags']);
             Flash::success('Article saved successfully.');
         } else {
             Flash::error('Article saved unsuccessfully.');
@@ -78,7 +75,10 @@ class ArticleController extends Controller
      */
     public function update($id, UpdateArticleRequest $request)
     {
-        if ($this->articleRepository->update($request->all(), $id)) {
+        $input = $request->all();
+        if ($article = $this->articleRepository->update($input, $id)) {
+            /* @var Post|null $article */
+            $article->tag($input['tags']);
             Flash::success('Article updated successfully.');
         } else {
             Flash::error('Article updated unsuccessfully.');
@@ -96,9 +96,7 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        $article = $this->articleRepository->find($id);
-
-        if ($this->articleRepository->delete($id)) {
+        if ($this->articleRepository->find($id) && $this->articleRepository->delete($id)) {
             Flash::success('Article deleted successfully.');
         } else {
             Flash::error('Article deleted unsuccessfully.');

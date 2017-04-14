@@ -41,6 +41,6 @@ return [
 
     'weibo' => [
         'username' => env('WEIBO_USERNAME'),
-        'password' => env('WEIBO_PASSWORD')
+        'password' => env('WEIBO_PASSWORD'),
     ],
 ];

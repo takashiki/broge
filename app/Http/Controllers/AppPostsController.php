@@ -67,7 +67,7 @@ class AppPostsController extends AppBaseController
     /**
      * Display the specified AppPosts.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */
@@ -87,7 +87,7 @@ class AppPostsController extends AppBaseController
     /**
      * Show the form for editing the specified AppPosts.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */
@@ -107,7 +107,7 @@ class AppPostsController extends AppBaseController
     /**
      * Update the specified AppPosts in storage.
      *
-     * @param  int              $id
+     * @param int                   $id
      * @param UpdateAppPostsRequest $request
      *
      * @return Response
@@ -132,7 +132,7 @@ class AppPostsController extends AppBaseController
     /**
      * Remove the specified AppPosts from storage.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */

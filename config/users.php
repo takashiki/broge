@@ -2,7 +2,7 @@
 
 return [
     'admin' => [
-        'username' => 'admin',
-        'password' => 'admin',
+        'username' => env('APP_USERNAME', 'admin'),
+        'password' => env('APP_PASSWORD', 'admin'),
     ],
 ];

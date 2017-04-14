@@ -3,11 +3,17 @@
 namespace App\Repositories;
 
 use App\Models\Post;
+use App\Scopes\PublishedScope;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Prettus\Repository\Eloquent\BaseRepository;
 
 class ArticleRepository extends BaseRepository
 {
+    /**
+     * @var Post
+     */
+    protected $model;
+
     /**
      * Specify Model class name.
      *
@@ -16,6 +22,11 @@ class ArticleRepository extends BaseRepository
     public function model()
     {
         return Post::class;
+    }
+
+    public function boot()
+    {
+        $this->model->addGlobalScope(new PublishedScope());
     }
 
     /**

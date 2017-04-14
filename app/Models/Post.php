@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Extensions\TranSlugify;
 use Cocur\Slugify\Slugify;
 use Cviebrock\EloquentSluggable\Sluggable;
-use EstGroupe\Taggable\Taggable;
+use Cviebrock\EloquentTaggable\Taggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Feed\FeedItem;
 
@@ -44,9 +44,12 @@ class Post extends \Eloquent implements FeedItem
         'title',
         'slug',
         'content',
+        'type',
     ];
 
-    public static $rules = [];
+    public static $rules = [
+        'title' => 'required',
+    ];
 
     /**
      * Return the sluggable configuration array for this model.
@@ -64,7 +67,7 @@ class Post extends \Eloquent implements FeedItem
 
     /**
      * @param \Cocur\Slugify\Slugify $engine
-     * @param string $attribute
+     * @param string                 $attribute
      *
      * @return \Cocur\Slugify\Slugify
      */
